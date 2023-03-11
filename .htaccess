@@ -1,0 +1,19 @@
+# Редирект с http на https создан автоматически при заказе бесплатного ssl-сертификата
+RewriteEngine On
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R,L]
+# Конец редиректа
+
+<RequireAll>
+ Require all granted
+Require not ip 2a00::/32
+Require not ip 2a02::/32
+Require not ip 2a07::/32
+Require not ip 2a07:ac83::/32
+Require not ip 2a09::/32
+Require not ip 2a0a::/32
+Require not ip 2a0d::/32
+Require not ip 2a0e::/32
+Require not ip 2a12::/32
+Require not ip 2a09::/32
+</RequireAll>

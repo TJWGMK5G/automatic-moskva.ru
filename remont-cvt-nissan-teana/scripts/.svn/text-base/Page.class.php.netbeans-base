@@ -1,0 +1,73 @@
+﻿<?php
+class Page {
+    var $site_name;
+    var $site_template;
+    var $page_content;
+    var $page_title;
+    var $page_template;
+    static $is_active;
+    var $path_to_files;
+    //РќР°С‡Р°Р»Рѕ Р±СѓС„РµСЂРёР·Р°С†РёРё, СЃРёРЅРіР»РµС‚РѕРЅ
+    public function __construct() {
+        if(self::$is_active == true) {
+            die("РћР±СЉРµРєС‚ СѓР¶Рµ СЃРѕР·РґР°РЅ");
+        }
+        else {
+            self::$is_active = true;
+            $this->path_to_files = getcwd();
+            //Р‘СѓС„РµСЂРёР·Р°С†РёСЏ
+            ob_start();
+        }
+    }
+    //РљРѕРЅРµС† Р±С„СѓС„РµСЂРёР·Р°С†РёРё, РІС‹РІРѕРґ РїРµСЂРµРјРµРЅРЅРѕР№ РІ РєРѕРЅС‚РµС‚
+    public function __destruct() {
+        $this->LoadContent();
+        $this->content = ob_get_contents();
+        ob_end_clean();
+        ob_flush();
+        $this->RenderPage();
+    }
+    public function SetPageTemplate($Template) {
+        if(!empty($this->page_template)) {
+            die("РЁР°Р±Р»РѕРЅ СѓР¶Рµ Р·Р°РґР°РЅРЅ");
+        }
+        else {
+            $this->page_template = $Template;
+        }
+    }
+    public function SetSiteName($Name) {
+        if(!empty($this->site_name)) {
+            die("РРјСЏ СѓР¶Рµ Р·Р°РґР°РЅРѕ");
+        }
+        else {
+            $this->site_name = $Name;
+        }
+    }
+    private function LoadContent() {
+        if(empty($_GET['page'])) {
+            $path = $this->path_to_files."/pages/index.htm";
+        }
+        else {
+            $page = (string)$_GET['page'];
+            $page = strip_tags(stripslashes($page));
+            $path = $this->path_to_files."/pages/{$page}.htm";
+        }
+        if(file_exists($path)) {
+            echo file_get_contents($path);
+        }
+        else {
+            echo '404';
+        }
+    }
+    private function RenderPage() {
+        $path = "{$this->path_to_files}/templates/{$this->page_template}/page.tpl.php";
+        if(file_exists($path)) {
+            require_once($path);
+        }
+        else {
+            die("РўР°РєРѕРіРѕ С€Р°Р±Р»РѕРЅР° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
+        }
+    }
+}
+
+?>

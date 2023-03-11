@@ -1,0 +1,169 @@
+﻿img {
+	border:0px;
+}
+* {
+	padding:0px;
+	margin:0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:black;
+}
+html, body {
+	background-color:#f0f0f0;
+}
+/* Шапка */
+#header {
+	height:279px;
+	width:100%;
+	background:url('img/header_bg.png') repeat-x;
+}
+#header_left {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+#header_right {
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+#flash {
+	position:absolute;
+	left:260px;
+	top:2px;
+}
+
+/* меню - правый столбец */
+#menu {
+	background:url('img/menu_bg.png') repeat-y;
+	width:235px;
+	height:97%;
+	position:absolute;
+	top:60px;
+	left:30px;
+}
+#logo {
+	margin-top:-30px;
+	display:block;
+}
+#copy {
+	position:absolute;
+	top:95%;
+	width:254px;
+	height:154px;
+	background:url('img/menu_bottom.png') no-repeat;
+	margin-left:-2px;
+}
+
+@media all and (min-width: 0px) {
+	#copy{ width:260px; }
+}
+body:nth-of-type(1) #copy
+{
+	margin-left:-2px;
+}
+
+#copy>span {
+	color:white;
+	margin-left:14px;
+	margin-top:20px;
+	display:block;
+}
+#copy>span a{
+	color:white;
+	margin-left:inherit;
+}
+/* внутренние блоки меню */
+.menu_block {
+	width:235px;
+	background:url('img/menu_block_bg.png') repeat-y;
+	margin-left:12px;
+	margin-top:20px;
+}
+/* fix for IE7*/
+.menu_block > img {
+	position:relative;
+	top:5px;
+}
+.menu_block_header {
+	width:214px;
+	height:22px;
+	background:url('img/menu_block_header.png') no-repeat;
+	color:white;
+	font-weight:bold;
+	text-align:center;
+}
+.menu_block > ul {
+	margin-top:10px;
+	margin-left:20px;
+}
+.menu_block > ul  a:hover{
+	font-weight:bold;
+	text-decoration:underline;
+}
+.menu_block > ul  a{
+	font-weight:bold;
+	text-decoration:none;
+}
+
+/* новости */
+#news {
+	width:313px;
+	background:url('img/news_bg.png') repeat-y;
+	position:absolute;
+	top:300px;
+	right:15px;
+}
+#news > div {
+	background:url('img/news_header.png') repeat-x;
+	height:57px;
+	width:313px;
+	color:white;
+	text-align:center;
+	font-weight:bold;
+	padding-top:15px;
+}
+#news > span {
+	padding-left:16px;
+	padding-right:17px;
+	display:block;
+}
+/* fix for IE7*/
+#news> img {
+	position:relative;
+	top:5px;
+}
+
+/* Текстовое содержимое */
+#content {
+	width:40%;
+	position:absolute;
+	top:300px;
+	left:300px;
+}
+p {
+	margin-top:10px;
+	margin-bottom:20px;
+}
+h1, h2, h3 {
+	color:#039613;
+}
+h1 {
+	font-size:1.7em;
+	margin-left:15px;
+	margin-bottom:10px;
+}
+h2 {
+	font-size:1.3em;
+	margin-left:15px;
+	margin-bottom:10px;
+}
+a {
+	color:#039613;
+}
+ul {
+	margin-left:30px;
+}
+td {
+	border:1px solid #039613;
+}

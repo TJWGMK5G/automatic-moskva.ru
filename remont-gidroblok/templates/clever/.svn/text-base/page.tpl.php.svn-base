@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- Р Р°Р·СЂР°Р±РѕС‚РєР° СЃР°Р№С‚Р°: sitool.ru -->
+<html>
+<head>
+	<title><?=$this->site_name; ?></title>
+     <link rel="stylesheet" href="/templates/medmetall/style.css" type="text/css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--[if lt IE 7]>
+        <script type="text/javascript" src="./unitpngfix.js"></script>
+<![endif]-->
+</head>
+<body>
+
+<div id="header">
+	<div id="phone">
+		(812) 334-88-19
+	</div>
+	<div id="logo">
+		<img src="/templates/medmetall/img/logo.png" alt="Logo">
+	</div>
+	<div id="topmenu">
+		<img src="/templates/medmetall/img/1_topmenu.png" alt="Menu Irem">
+		<img src="/templates/medmetall/img/2_topmenu.png" alt="Menu Irem">
+		<img src="/templates/medmetall/img/3_topmenu.png" alt="Menu Irem">
+		<img src="/templates/medmetall/img/4_topmenu.png" alt="Menu Irem">
+	</div>
+</div>
+	
+<div id="navbar">
+<A href="/">Р“Р»Р°РІРЅР°СЏ</a>
+<A href="index.php?page=test1">РўРµСЃС‚1</a>
+</div>
+<div id="page">
+	<div id="news">
+<!-- РЎСЋРґР° РјРѕР¶РЅРµ РІР±РёРІР°С‚СЊ Р»СЋР±РѕРµ html СЃРѕРґРµСЂР¶РёРјРѕРµ -->
+Р»РµРІС‹Р№ Р±Р»РѕРє Р±Р»РѕРє
+<!-- РєРѕРЅРµС† Р±Р»РѕРєР° -->
+	<img src="/templates/medmetall/img/news_obj.jpg" alt="РќРѕРІРѕСЃС‚Рё" height="144" width="164">
+	</div>
+
+	<div id="content">
+<?=$this->content;?>
+	</div>
+
+	<div id="random">
+<img src="/templates/medmetall/img/doc.jpg" alt="Р–РµРЅС‰РёРЅР° РґРѕРєС‚РѕСЂ">
+<!-- РЎСЋРґР° РјРѕР¶РЅРµ РІР±РёРІР°С‚СЊ Р»СЋР±РѕРµ html СЃРѕРґРµСЂР¶РёРјРѕРµ -->
+РїСЂР°РІС‹Р№ Р±Р»РѕРє
+<!-- РєРѕРЅРµС† Р±Р»РѕРєР° -->
+	</div>
+<div style="clear:both;"></div>
+</div>
+
+<div id="copy">
+	<p>РЎРѕР·РґР°РЅРёРµ Рё РїРѕРґРґРµСЂР¶РєР° СЃР°Р№С‚Р° <A href="http://sitool.ru">Sitool</a>
+</div>
+</body>
+</html>

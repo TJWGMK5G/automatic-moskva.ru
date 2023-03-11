@@ -1,0 +1,7 @@
+User-agent: BingBot
+Crawl-delay: 1
+Host: https://automatic-moskva.ru/
+Disallow: /templates/
+Sitemap: https://automatic-moskva.ru/sitemap.txt
+Disallow: /*?etext*
+Clean-param: etext

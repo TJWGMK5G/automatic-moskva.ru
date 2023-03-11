@@ -1,0 +1,16 @@
+﻿; $Id: acquia_marina.info,v 1.1.2.1 2008/10/18 00:38:38 jwolf Exp $
+
+name = Med-Metall
+description = РўРµРјР°, СЃРѕР±СЂР°РЅРЅР°СЏ РґР»СЏ РѕС„РѕСЂРјР»РµРЅРёСЏ СЃР°Р№С‚Р° Med-Metall.
+
+core = 6.x
+engine = phptemplate
+stylesheets[all][] = style.css
+features[] = primary_links
+
+; Information added by drupal.org packaging script on 2008-10-18
+version = "6.x-1.2"
+core = "6.x"
+project = "med_metall"
+datestamp = "1224294902"
+

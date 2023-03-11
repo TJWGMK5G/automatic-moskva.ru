@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title><?=$this->site_name; ?></title>
+     <link rel="stylesheet" href="/templates/clever/style.css" type="text/css">
+	<meta http-equiv="Content-Type" content="text/html; charset=<?=$this->page_encoding; ?>">
+	<script type="text/javascript" src="/templates/clever/jscripts/jquery.js"></script>
+	<script type="text/javascript" src="/templates/clever/jscripts/blocker.js"></script>
+</head>
+<body>
+	<div id="header">
+		<!--<img src="/templates/clever/img/header_bg_left.png" alt="" title="" id="header_left">-->
+		<!--<img src="/templates/clever/img/header_bg_right.png" alt="" title="" id="header_right">-->
+		<div id="flash"><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="987" height="273" id="shapka_03" align="middle">
+			<param name="allowScriptAccess" value="sameDomain" />
+			<param name="movie" value="/templates/clever/shapka_03.swf" />
+			<param name="quality" value="high" />
+			<param name="bgcolor" value="#676767" />
+			<embed src="/templates/clever/shapka_03.swf" quality="high" bgcolor="#676767" width="800" height="221" name="shapka_03" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+		</object></div>
+	</div>
+	
+	<div id="menu">
+		<a href="/" id="logo"><img src="/templates/clever/img/logo.png" alt="Clever Car" title="Clever Car"></a>
+		
+		<div class="menu_block">
+			<div class="menu_block_header">
+				Продукция
+			</div>
+			<ul>
+				<li> <a href="">Навигация</a>
+				<li> <a href="">Тюнинг</a>
+				<li> <a href="">Оборудование</a>
+			</ul>
+			<img src="/templates/clever/img/menu_block_bottom.png" alt="" title="">
+		</div>
+		
+		<div class="menu_block">
+			<div class="menu_block_header">
+				Продукция
+			</div>
+			<ul>
+				<li> <a href="">Навигация</a>
+				<li> <a href="">Тюнинг</a>
+				<li> <a href="">Оборудование</a>
+			</ul>
+			<img src="/templates/clever/img/menu_block_bottom.png" alt="" title="">
+		</div>		
+		
+		<div  id="copy">
+			<span>
+			Поддержка и разработка:<br> <a href="http://sitool.ru">Сайтул.ру</a>
+			</span>
+		</div>
+	</div>
+	
+	
+	<div id="content"><?=$this->content;?></div>
+	
+	<div id="news">
+		<div>
+			Новости
+		</div>
+		<span>
+			Лист Мёбиуса поддерживает математический анализ, таким образом сбылась мечта идиота - утверждение полностью доказано. Огибающая семейства прямых по-прежнему востребована. Линейное уравнение специфицирует действительный скачок функции, как и предполагалось. Итак, ясно, что скалярное произведение тривиально. Математический анализ порождает коллинеарный натуральный логарифм, что несомненно приведет нас к истине.
+		</span>
+		<img src="/templates/clever/img/news_bottom.png" alt="" title="">
+	</div>
+</body>
+</html>

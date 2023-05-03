@@ -46,6 +46,10 @@
 <!-- скрипт для скрытия Яндекс.Метрики и Google Analytics от ботов!  -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/css/jquery.fancybox.min.css" />
 <link rel="stylesheet" href="/templates/evo/welcome-pt.css">
+
+<!-- Использование подсказок ресурсов (Загрузка reCAPTCHA) -->
+<link rel="preconnect" href="https://www.google.com">
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
    
 <!--Подключение иконок    -->
 
@@ -82,7 +86,7 @@
    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(23396941, "init", {
+   ym(23396941, "init", { 
         clickmap:true,
         trackLinks:true,
         accurateTrackBounce:true,
@@ -399,11 +403,8 @@ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = 
     
 <!-- Yandex.Metrika counter -->
 <script >
-var yaParams = {/*Здесь параметры визита*/};
+  var yaParams = {/*Здесь параметры визита*/};
 </script>
-
-
-
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -411,7 +412,7 @@ var yaParams = {/*Здесь параметры визита*/};
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-75493202-1', 'auto');
+  ga('create', 'UA-75493202-1', 'auto'); 
   ga('send', 'pageview');
 
 </script>
@@ -470,6 +471,7 @@ var yaParams = {/*Здесь параметры визита*/};
                         <a href="#" class="welcome-pt-close">Продолжить</a>
                     </div>
                 </div>
+                <input type="hidden" name="recaptchaResponse" id="recaptchaResponse">
             </form>
         </div>
     </div>
@@ -501,6 +503,120 @@ var yaParams = {/*Здесь параметры визита*/};
   });
 </script>
 
+<!-- Тест (Загрузка reCAPTCHA) -->
+<!-- <script async src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+  if(typeof grecaptcha === 'undefined') {
+    grecaptcha = {};
+  }
+  grecaptcha.ready = function(cb){
+    if(typeof grecaptcha === 'undefined') {
+      const c = '___grecaptcha_cfg';
+      window[c] = window[c] || {};
+      (window[c]['fns'] = window[c]['fns']||[]).push(cb);
+    } else {
+      cb();
+    }
+  }
+
+  // Usage
+  grecaptcha.ready(function(){
+    grecaptcha.render("container", {
+      sitekey: "6LeWxUwlAAAAALxE-IqsReGOKGO1W7NhU6SqEZoL"
+    });
+  });
+</script>
+<script>
+  const onloadCallback = function() {
+    console.log("reCAPTCHA has loaded!");
+    grecaptcha.reset();
+  };
+</script>
+<script async src="https://www.google.com/recaptcha/api.js?onload=onloadCallback"></script> -->
+
+
+<!-- Тест (Загрузка reCAPTCHA) - One more method -->
+<script src="https://www.google.com/recaptcha/api.js?render=6LeWxUwlAAAAALxE-IqsReGOKGO1W7NhU6SqEZoL"></script>
+<script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LeWxUwlAAAAALxE-IqsReGOKGO1W7NhU6SqEZoL', { action: 'contact' }).then(function (token) {
+                var recaptchaResponse = document.getElementById('recaptchaResponse');
+                recaptchaResponse.value = token;
+            });
+        });
+</script>
+
+<?php 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptchaResponse'])) {
+
+    
+    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+    $recaptcha_secret = '6LeWxUwlAAAAAADdTk-kARBLAc0EPxK7VvIQp1rH';
+    $recaptcha_response = $_POST['recaptchaResponse'];
+
+    
+    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+    $recaptcha = json_decode($recaptcha);
+
+    
+    if ($recaptcha->score >= 0.5) {
+        
+    } else {
+        
+    }
+} 
+?>
+
+
+
+<!-- <script> 
+// document.querySelector('.welcome-pt-close').addEventListener('click' , function() {
+//   let dataLazyLoadingJS = {
+//             data: {
+//               ya_counter: {
+//     status: false,
+//     html: '<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(23396941,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true, webvisor:true }); <\/script><noscript><div><img src="https://mc.yandex.ru/watch/23396941" style="position:absolute; left:-9999px;" alt="" \/><\/div><\/noscript>',
+//     area: '.before-footer-scripts-place'
+//   },
+//               ga_counter: {
+//     status: false,
+//     html: `<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1014093726"><\/script><script>function getCid(){var match=document.cookie.match('(?:^|;)\\\\s*_ga=([^;]*)');var raw=(match)?decodeURIComponent(match[1]):null;if(raw)match=raw.match(/(\\d+\\.\\d+)$/);var gacid=(match)?match[1]:null;return gacid?gacid:false;}<\/script>`,
+//     area: '.before-footer-scripts-place'
+//   }
+//             }
+//         };
+//         let dataSettings = {
+//             cookie_name: 'PST_VERIFIED_COOKIE',
+//         };
+//         let LazyLoad = new ptsLazyLoad(dataLazyLoadingJS, dataSettings);
+//         LazyLoad.simpleCheck(1);
+// })
+
+  //   document.addEventListener('DOMContentLoaded', function() {
+     
+  //       let dataLazyLoadingJS = {
+  //           data: {
+  //             ya_counter: {
+  //   status: false,
+  //   html: '<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(23396941,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true, webvisor:true }); <\/script><noscript><div><img src="https://mc.yandex.ru/watch/23396941" style="position:absolute; left:-9999px;" alt="" \/><\/div><\/noscript>',
+  //   area: '.before-footer-scripts-place'
+  // },
+  //             ga_counter: {
+  //   status: false,
+  //   html: `<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1014093726"><\/script><script>function getCid(){var match=document.cookie.match('(?:^|;)\\\\s*_ga=([^;]*)');var raw=(match)?decodeURIComponent(match[1]):null;if(raw)match=raw.match(/(\\d+\\.\\d+)$/);var gacid=(match)?match[1]:null;return gacid?gacid:false;}<\/script>`,
+  //   area: '.before-footer-scripts-place'
+  // }
+  //           }
+  //       };
+  //       let dataSettings = {
+  //           cookie_name: 'PST_VERIFIED_COOKIE',
+  //       };
+  //       let LazyLoad = new ptsLazyLoad(dataLazyLoadingJS, dataSettings);
+  //       LazyLoad.simpleCheck(1);
+  // });
+</script> -->
+
+<!-- Изменение заголовка(h1) на всех страницах -->
 <script>
   let pageTitle = document.querySelector('#pageTitle');
 
